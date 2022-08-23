@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="a.css">
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+
+<div class="p1">
+
+
+  
+    <div class="navbar">
+        
+        <img src="Rectangle 1(2).png" alt="">
+        
+        <div class="home">HOME</div>
+        <div class="about">ABOUT</div>
+        
+    </div>
+
+    <div class="container">
+
+    <div class="title" id="cc">CURRENCY CONVERTER</div>
+    
+    <div class="x1vw">FROM <input type="text" id="ini"></div>
+    <div class="x1vw">TO <input type="text" id="fin"></div>
+    <div class="x1vw">AMOUNT <input type="text " id="am"></div>
+    <div id="res" class="x1vw">RESULT</div>
+    <input type="submit" id="submit" class="submit" class="x1vw">
+    <div class="footer" class="x1vw">Type in currency in 3 letters for eg :us dollar as (usd)</div>
+    </div>
+
+<div class="img"><img src="Ellipse 1(1).png" alt=""></div>
+   
+
+</div>
+
+
+
+
+
+    <!-- <div ><img class="ellipse1" src="Ellipse 1.png" alt=""></div>
+    <div><img class="ellipse2" src="Ellipse 2.svg" alt=""></div>
+    <div class="card">
+    <div id="cc">CURRENCY CONVERTER</div>
+
+
+
+    <div class="container">
+    <div>ENTER THE CURRENCY</div>
+    <div>ENTER THE FINAL CURRENCY</div> 
+    <input type="text" id="ini">
+    <input type="text" id="fin">
+    <div>AMOUNT 
+        <div></div>
+        <input type="text" id="am"></div> 
+   <div id="res">RESULT</div>
+    
+    
+    </div>
+    <input type="submit" id="submit"> -->
+
+<!-- 
+    <div style="border: 10px solid red;">
+    <img src="Rectangle 1.svg" alt="">
+    </div> -->
+
+
+
+
+</body>
+
+
+<script>
+    var ini =document.querySelector('#ini')
+    // var iniv=ini.value;
+    
+    
+    var fin =document.querySelector('#fin')
+    // var finv = fin.value;
+    var am =document.querySelector('#am')
+    // var amv = am.value;
+    var res =document.querySelector('#res')
+
+
+    document.querySelector('#submit').onclick=function(){
+        var myHeaders = new Headers();
+                myHeaders.append("apikey", "lJpU06lIVLB6q93E3PbjXWiVDFGy7kEM");
+
+                var requestOptions = {
+                    method: 'GET',
+                    redirect: 'follow',
+                    headers: myHeaders
+                };
+
+                
+
+                let url=`https://api.apilayer.com/exchangerates_data/convert?to=${fin.value}&from=${ini.value}&amount=${am.value}`
+                fetch(url , requestOptions)
+                    .then(response => response.json())
+                    .then(data => 
+                    
+                   { var result=data.result;
+                    console.log(result)
+                    console.log(ini.value)
+                    console.log(ini)
+                   
+                    document.querySelector('#res').innerHTML=`${result}`}
+
+                    )
+                    .catch(error => console.log('error', error));
+
+                    
+    }
+
+    
+
+    
+</script>
+
+
+</html>
